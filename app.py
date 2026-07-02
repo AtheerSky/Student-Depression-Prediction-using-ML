@@ -235,20 +235,16 @@ elif page == "Exploratory Data Analysis":
     ax.set_xlabel(selected_num)
     ax.set_ylabel("Count")
     st.pyplot(fig)
-    if selected_num == "Age":
-        st.caption("Most students are between 18 and 24 years old, with ages fairly evenly distributed.")
-    elif selected_num == "Sleep Duration":
-        st.caption("Most students sleep around 7 hours per night, with fewer students sleeping very little or very long.")
-    elif selected_num == "Study Hours":
-        st.caption("Most students study a moderate number of hours each day, while fewer study for very long periods.")
-    elif selected_num == "Social Media Hours": 
-        st.caption("Social media usage is slightly right-skewed, meaning a small number of students spend many hours online.")
-    elif selected_num == "Physical Activity":
-        st.caption("Physical activity is fairly spread across the dataset, showing different activity levels among students.")
-    elif selected_num == "CGPA":
-        st.caption("CGPA values are concentrated around the middle range, with fewer students at the lowest and highest values.")
-    elif selected_num == "Stress Level":
-        st.caption("Stress levels vary across students, with most reporting moderate stress.")
+    descriptions = {
+    "Age": "Most students are between 18 and 24 years old.",
+    "Sleep_Duration": "Most students sleep around 7 hours per night.",
+    "Study_Hours": "Most students study a moderate number of hours each day.",
+    "Social_Media_Hours": "Social media usage is slightly right-skewed.",
+    "Physical_Activity": "Physical activity is fairly spread across the dataset.",
+    "CGPA": "CGPA values are concentrated around the middle range.",
+    "Stress_Level": "Stress levels vary across students." }
+    
+    st.caption(descriptions.get(selected_num, ""))
 
     section_rule()
 
