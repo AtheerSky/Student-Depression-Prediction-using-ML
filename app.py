@@ -153,11 +153,11 @@ PCA_INFO = {
 # =============================================================
 st.sidebar.title("🎓  Student Depression Prediction")
 page = st.sidebar.radio("Menu", [
-    "🏠Overview",
-    "📊Exploratory Data Analysis",
-    "🤖Model Comparison",
-    "📈Final Model Evaluation",
-    "🧮Predict Depression Risk",
+    "Overview",
+    "Exploratory Data Analysis",
+    "Model Comparison",
+    "Final Model Evaluation",
+    "Predict Depression Risk",
 ])
 
 st.sidebar.markdown("---")
