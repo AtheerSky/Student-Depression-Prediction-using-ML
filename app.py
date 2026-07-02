@@ -294,8 +294,8 @@ elif page == "Model Comparison":
     eyebrow("Section 06 · Modeling")
     st.title("🧪 Model Comparison")
     st.markdown(
-        "Before the models' optimisztion, five classification algorithms were trained using their **default parameters**." 
-        "Also, each model was evaluated with and without **Principal Component Analysis (PCA)** to compare the effect of dimensionality reduction on classification performance."
+        "Before the models' optimisztion, five classification algorithms were trained using their **default parameters**. " 
+                "Also, each model was evaluated with and without **Principal Component Analysis (PCA)** to compare the effect of dimensionality reduction on classification performance."
     )
 
     comp_df = pd.DataFrame(ALL_MODELS)[["model", "pca", "accuracy", "precision", "recall", "f1"]]
@@ -344,8 +344,8 @@ elif page == "Final Model Evaluation":
     eyebrow("Section 07 · Evaluation")
     st.title("📈 Final Model Evaluation")
     st.markdown( "The two best-performing models, **Logistic Regression and Decision Tree**," 
-    "were optimized using **GridSearchCV with 5-fold cross-validation**." 
-    "**Recall** was selected as the optimization metric because the dataset is imbalanced and identifying students at risk of depression is the primary objective." )
+                 "were optimized using **GridSearchCV with 5-fold cross-validation**. " 
+                 "**Recall** was selected as the optimization metric because the dataset is imbalanced and identifying students at risk of depression is the primary objective." )
 
     model_pick = st.selectbox("Select a model to inspect", list(FINAL_METRICS.keys()))
     m = FINAL_METRICS[model_pick]
@@ -393,9 +393,9 @@ elif page == "Final Model Evaluation":
         'The Decision Tree achieved higher accuracy, but accuracy alone is not enough because the dataset is imbalanced.'
         'The main goal of this project is to identify as many students with depression as possible.'
         
-        'The improved Logistic Regression achieved a much higher <b>Recall (66.95%) and F1-score (26.12%)</b> than the Decision Tree.'
-        'It also achieved a higher <b>ROC-AUC (0.680)<b>.'
-        'a false alarm. The tuned Logistic Regression reaches <b>66.95% recall</b> and an F1-score '
+        '   The improved Logistic Regression achieved a much higher <b>Recall (66.95%) and F1-score (26.12%)</b> than the Decision Tree.'
+        'It also achieved a higher <b>ROC-AUC (0.680)<b>'   
+        'a false alarm.    The tuned Logistic Regression reaches <b>66.95% recall</b> and an F1-score '
         'Therefore, the improved Logistic Regression was chosen as the final model for prediction.'
         '</div>', unsafe_allow_html=True
     )
