@@ -226,16 +226,29 @@ elif page == "Exploratory Data Analysis":
     section_rule()
 
     st.subheader("2. Numerical Feature Distributions")
-    selected_num = st.selectbox("Choose a numerical feature", numerical_features)
+    selected_num = st.selectbox("Select a feature to explore", numerical_features)
     fig, ax = plt.subplots(figsize=(7, 4))
     ax.hist(df[selected_num], bins=20, edgecolor="black", color="#0F766E")
     ax.set_title(f"Distribution of {selected_num}")
     ax.set_xlabel(selected_num)
     ax.set_ylabel("Count")
     st.pyplot(fig)
-    st.caption("Sleep Duration is roughly normal around 7 hours. Study Hours and Social Media "
-               "Hours are slightly right-skewed. Age and Physical Activity are spread fairly evenly.")
-
+    
+    if selected_num == "Age":
+        st.caption("Most students are between 18 and 24 years old, with ages fairly evenly distributed.")
+    elif selected_num == "Sleep Duration":
+        st.caption("Most students sleep around 7 hours per night, with fewer students sleeping very little or very long.")
+    elif selected_num == "Study Hours":
+        st.caption("Most students study a moderate number of hours each day, while fewer study for very long periods.")
+    elif selected_num == "Social Media Hours":
+        st.caption("Social media usage is slightly right-skewed, meaning a small number of students spend many hours online.")
+    elif selected_num == "Physical Activity":
+        st.caption("Physical activity is fairly spread across the dataset, showing different activity levels among students.")
+    elif selected_num == "CGPA":
+        st.caption("CGPA values are concentrated around the middle range, with fewer students at the lowest and highest values.")
+    elif selected_num == "Stress Level":
+        st.caption("Stress levels vary across students, with most reporting moderate stress.")
+    
     section_rule()
 
     st.subheader("3. Categorical Feature Distributions")
