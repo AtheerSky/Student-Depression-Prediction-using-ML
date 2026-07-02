@@ -151,13 +151,13 @@ PCA_INFO = {
 # =============================================================
 # SIDEBAR NAVIGATION
 # =============================================================
-st.sidebar.title("🎓 Navigation")
-page = st.sidebar.radio("Go to", [
-    "Overview",
-    "Exploratory Data Analysis",
-    "Model Comparison",
-    "Final Model Evaluation",
-    "Predict Depression Risk",
+st.sidebar.title("🎓  Student Depression Prediction")
+page = st.sidebar.radio("Menu", [
+    "🏠Overview",
+    "📊Exploratory Data Analysis",
+    "🤖Model Comparison",
+    "📈Final Model Evaluation",
+    "🧮Predict Depression Risk",
 ])
 
 st.sidebar.markdown("---")
@@ -457,5 +457,4 @@ elif page == "Predict Depression Risk":
         </div>
         """, unsafe_allow_html=True)
 
-        st.warning("This is an educational classroom project, not a medical diagnostic tool. "
-                   "Please don't use this for real mental health decisions.")
+        st.warning("This application is for educational purposes only and is not intended for medical diagnosis.")
