@@ -151,18 +151,20 @@ PCA_INFO = {
 # =============================================================
 # SIDEBAR NAVIGATION
 # =============================================================
-st.sidebar.title("🎓 Navigation")
-page = st.sidebar.radio("Go to", [
-    "Overview",
-    "Exploratory Data Analysis",
-    "Model Comparison",
-    "Final Model Evaluation",
-    "Predict Depression Risk",
+st.sidebar.title("🎓Student Depression Prediction")
+page = st.sidebar.radio("📌 Menu", [
+    " 🏠 Overview",
+    " 📊 Exploratory Data Analysis",
+    " 🤖 Model Comparison",
+    " 📈 Final Model Evaluation",
+    " 🧮 Predict Depression Risk",
 ])
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Dataset: Student Depression & Lifestyle (100k Data) — Kaggle")
-st.sidebar.caption("Final model: Logistic Regression (tuned) · pre-trained, never retrained here")
+st.sidebar.caption("📊 Dataset: Student Depression & Lifestyle (100k Data) — Kaggle")
+st.sidebar.caption("🤖 Final model: Logistic Regression (Improved)")
+st.sidebar.caption("📋 Atheer Almajnoni ")
+
 
 # =============================================================
 # PAGE 1 — OVERVIEW
@@ -233,8 +235,20 @@ elif page == "Exploratory Data Analysis":
     ax.set_xlabel(selected_num)
     ax.set_ylabel("Count")
     st.pyplot(fig)
-    st.caption("Sleep Duration is roughly normal around 7 hours. Study Hours and Social Media "
-               "Hours are slightly right-skewed. Age and Physical Activity are spread fairly evenly.")
+    if selected_num == "Age":
+        st.caption("Most students are between 18 and 24 years old, with ages fairly evenly distributed.")
+    elif selected_num == "Sleep Duration":
+        st.caption("Most students sleep around 7 hours per night, with fewer students sleeping very little or very long.")
+    elif selected_num == "Study Hours":
+        st.caption("Most students study a moderate number of hours each day, while fewer study for very long periods.")
+    elif selected_num == "Social Media Hours": 
+        st.caption("Social media usage is slightly right-skewed, meaning a small number of students spend many hours online.")
+    elif selected_num == "Physical Activity":
+        st.caption("Physical activity is fairly spread across the dataset, showing different activity levels among students.")
+    elif selected_num == "CGPA":
+        st.caption("CGPA values are concentrated around the middle range, with fewer students at the lowest and highest values.")
+    elif selected_num == "Stress Level":
+        st.caption("Stress levels vary across students, with most reporting moderate stress.")
 
     section_rule()
 
@@ -457,5 +471,4 @@ elif page == "Predict Depression Risk":
         </div>
         """, unsafe_allow_html=True)
 
-        st.warning("This is an educational classroom project, not a medical diagnostic tool. "
-                   "Please don't use this for real mental health decisions.")
+        st.warning(" 📌 This application is for educational purposes only and is not intended for medical diagnosis.")
