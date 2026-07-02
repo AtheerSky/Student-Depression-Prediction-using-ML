@@ -394,8 +394,8 @@ elif page == "Final Model Evaluation":
         'The main goal of this project is to identify as many students with depression as possible.'
         
         '   The improved Logistic Regression achieved a much higher <b>Recall (66.95%) and F1-score (26.12%)</b> than the Decision Tree.'
-        'It also achieved a higher <b>ROC-AUC (0.680)<b>'   
-        'a false alarm.    The tuned Logistic Regression reaches <b>66.95% recall</b> and an F1-score '
+        '    It also achieved a higher <b>ROC-AUC (0.680)<b>'   
+        'a false alarm.                                     The tuned Logistic Regression reaches <b>66.95% recall</b> and an F1-score '
         'Therefore, the improved Logistic Regression was chosen as the final model for prediction.'
         '</div>', unsafe_allow_html=True
     )
