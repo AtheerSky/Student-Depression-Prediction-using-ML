@@ -323,10 +323,10 @@ elif page == "Model Comparison":
     ])
 
     st.markdown(
-        '<div class="conclusion-box"><b>Conclusion:</b>  PCA reduced the number of features from 14 to 9 '
+        '<div class="conclusion-box"><b>Conclusion:</b>  PCA reduced the number of features from 14 to 9'
         'while preserving approximately 95% of the original variance.'
-         Based on the comparison, the Decision Tree achieved <b>better</b>  performance with PCA, while KNN performed <b>better without </b> PCA. '
-        ' Logistic Regression, Random Forest, and SVM produced very similar results in both cases. '
+        'Based on the comparison, the Decision Tree achieved <b>better</b> performance with PCA, while KNN performed <b>better without </b> PCA.'
+        'Logistic Regression, Random Forest, and SVM produced very similar results in both cases.'
         
         'The correlation heatmap indicates that the dataset contains generally weak correlations between features,'
         'which may explain why PCA had only a limited impact on the performance of most models.'
