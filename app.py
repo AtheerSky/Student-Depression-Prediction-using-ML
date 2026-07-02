@@ -457,4 +457,5 @@ elif page == "Predict Depression Risk":
         </div>
         """, unsafe_allow_html=True)
 
-        st.warning("This application is for educational purposes only and is not intended for medical diagnosis.")
+        st.warning("This is an educational classroom project, not a medical diagnostic tool. "
+                   "Please don't use this for real mental health decisions.")
