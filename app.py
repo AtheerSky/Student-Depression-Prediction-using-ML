@@ -235,16 +235,8 @@ elif page == "Exploratory Data Analysis":
     ax.set_xlabel(selected_num)
     ax.set_ylabel("Count")
     st.pyplot(fig)
-    descriptions = {
-    "Age": "Most students are between 18 and 24 years old.",
-    "Sleep_Duration": "Most students sleep around 7 hours per night.",
-    "Study_Hours": "Most students study a moderate number of hours each day.",
-    "Social_Media_Hours": "Social media usage is slightly right-skewed.",
-    "Physical_Activity": "Physical activity is fairly spread across the dataset.",
-    "CGPA": "CGPA values are concentrated around the middle range.",
-    "Stress_Level": "Stress levels vary across students." }
-    
-    st.caption(descriptions.get(selected_num, ""))
+    st.caption("Sleep Duration is roughly normal around 7 hours. Study Hours and Social Media "
+               "Hours are slightly right-skewed. Age and Physical Activity are spread fairly evenly.")
 
     section_rule()
 
