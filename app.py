@@ -151,18 +151,20 @@ PCA_INFO = {
 # =============================================================
 # SIDEBAR NAVIGATION
 # =============================================================
-st.sidebar.title("🎓  Student Depression Prediction")
+st.sidebar.title("🎓Student Depression Prediction")
 page = st.sidebar.radio("Menu", [
-    "Overview",
-    "Exploratory Data Analysis",
-    "Model Comparison",
-    "Final Model Evaluation",
-    "Predict Depression Risk",
+    "🏠 Overview",
+    "📊 Exploratory Data Analysis",
+    "💻 Model Comparison",
+    "📈 Final Model Evaluation",
+    "🧮 Predict Depression Risk",
 ])
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Dataset: Student Depression & Lifestyle (100k Data) — Kaggle")
-st.sidebar.caption("Final model: Logistic Regression (tuned) · pre-trained, never retrained here")
+st.sidebar.caption("📊 Dataset: Student Depression & Lifestyle (100k Data)")
+st.sidebar.caption("💻 Final model: Logistic Regression (Improved)")
+st.sidebar.caption("Atheer Almajnoni")
+
 
 # =============================================================
 # PAGE 1 — OVERVIEW
@@ -292,9 +294,8 @@ elif page == "Model Comparison":
     eyebrow("Section 06 · Modeling")
     st.title("🧪 Model Comparison")
     st.markdown(
-        "Before tuning anything, five classifiers were trained with their **default parameters**, "
-        "each once on the PCA-reduced features and once on the full scaled feature set. "
-        "This is the same comparison from the notebook — reproduced here, not retrained."
+        "Before the models' optimisztion, five classification algorithms were trained using their **default parameters**." 
+        "Also, each model was evaluated with and without **Principal Component Analysis (PCA)** to compare the effect of dimensionality reduction on classification performance."
     )
 
     comp_df = pd.DataFrame(ALL_MODELS)[["model", "pca", "accuracy", "precision", "recall", "f1"]]
@@ -307,10 +308,9 @@ elif page == "Model Comparison":
         }).background_gradient(subset=["F1-score"], cmap="BuGn"),
         use_container_width=True,
     )
-    st.caption("Sorted by F1-score, same as the notebook's comparison table. "
-               "Because Depression is imbalanced (~90/10), high accuracy alone (as seen with the "
-               "default Logistic Regression, SVM, and Random Forest) usually just means the model "
-               "is predicting the majority class.")
+    st.caption("Models are sorted by F1-score. Because the dataset is imbalanced (~90:10), accuracy alone can be misleading." 
+               A model may achieve high accuracy by correctly predicting the majority class (students without depression), while failing to identify many students with depression."
+               while the F1-score provides a more balanced evaluation of model performance.")
 
     section_rule()
     eyebrow("Dimensionality Reduction")
@@ -323,13 +323,19 @@ elif page == "Model Comparison":
     ])
 
     st.markdown(
-        '<div class="conclusion-box"><b>Conclusion:</b> PCA compressed 14 features down to 9 '
-        'components while keeping about 95% of the variance. Comparing the table above: the '
-        'Decision Tree actually performed <b>better</b> with PCA, KNN performed <b>better without</b> '
-        'PCA, and Logistic Regression, Random Forest, and SVM landed at nearly identical scores '
-        'either way. This matches the notebook\'s takeaway — this dataset has weak feature '
-        'correlations overall, so PCA mostly helps the tree/distance-based models rather than the '
-        'linear ones.</div>', unsafe_allow_html=True)
+        '<div class="conclusion-box"><b>Conclusion:</b>  PCA reduced the number of features from 14 to 9 '
+        'while preserving approximately 95% of the original variance.'
+         Based on the comparison, the Decision Tree achieved <b>better</b>  performance with PCA, while KNN performed <b>better without </b> PCA. '
+        ' Logistic Regression, Random Forest, and SVM produced very similar results in both cases. '
+        
+        'The correlation heatmap indicates that the dataset contains generally weak correlations between features,'
+        'which may explain why PCA had only a limited impact on the performance of most models.'
+        'of most models.</div>', unsafe_allow_html=True)
+
+
+
+
+
 
 # =============================================================
 # PAGE 4 — FINAL MODEL EVALUATION
@@ -337,11 +343,9 @@ elif page == "Model Comparison":
 elif page == "Final Model Evaluation":
     eyebrow("Section 07 · Evaluation")
     st.title("📈 Final Model Evaluation")
-    st.markdown(
-        "The two strongest candidates — Logistic Regression and Decision Tree — were tuned with "
-        "`GridSearchCV` (5-fold cross-validation, optimizing for **recall**) and saved as the two "
-        "`.pkl` models this app actually uses for predictions."
-    )
+    st.markdown( "The two best-performing models, **Logistic Regression and Decision Tree**," 
+    "were optimized using **GridSearchCV with 5-fold cross-validation**." 
+    "**Recall** was selected as the optimization metric because the dataset is imbalanced and identifying students at risk of depression is the primary objective." )
 
     model_pick = st.selectbox("Select a model to inspect", list(FINAL_METRICS.keys()))
     m = FINAL_METRICS[model_pick]
@@ -384,18 +388,20 @@ elif page == "Final Model Evaluation":
 
     st.markdown(
         '<div class="conclusion-box">'
-        '<b>Why Logistic Regression was chosen as the final model</b> '
+        '<b>Why Logistic Regression was chosen as the final model ?</b> '
         '<span class="badge-final">FINAL MODEL</span><br><br>'
-        'Decision Tree edges out Logistic Regression on raw accuracy (81.62% vs. 61.90%), but '
-        'accuracy is misleading on this imbalanced dataset — a model can score high just by mostly '
-        'predicting "not depressed". What matters more for this problem is <b>recall</b>: catching '
-        'as many true depression cases as possible, since missing an at-risk student is worse than '
+        'The Decision Tree achieved higher accuracy, but accuracy alone is not enough because the dataset is imbalanced.'
+        'The main goal of this project is to identify as many students with depression as possible.'
+        
+        'The improved Logistic Regression achieved a much higher <b>Recall (66.95%) and F1-score (26.12%)</b> than the Decision Tree.'
+        'It also achieved a higher <b>ROC-AUC (0.680)<b>.'
         'a false alarm. The tuned Logistic Regression reaches <b>66.95% recall</b> and an F1-score '
-        'of <b>26.12%</b> — both far ahead of the Decision Tree\'s 17.89% recall and 16.38% F1-score, '
-        'and its ROC-AUC of 0.680 is also stronger. For that reason, the improved Logistic Regression '
-        'was selected as the final model used for prediction in this app.'
+        'Therefore, the improved Logistic Regression was chosen as the final model for prediction.'
         '</div>', unsafe_allow_html=True
     )
+
+
+
 
 # =============================================================
 # PAGE 5 — PREDICTION
@@ -403,8 +409,7 @@ elif page == "Final Model Evaluation":
 elif page == "Predict Depression Risk":
     eyebrow("Live Inference")
     st.title("🔮 Predict Depression Risk")
-    st.markdown("Enter a student's lifestyle details below to estimate their depression risk. "
-                "Predictions are made using the models trained earlier — no retraining happens here.")
+    st.markdown("Enter a student's lifestyle details below to estimate their depression risk. ")
 
     model_choice = st.radio("Choose a model", ["Logistic Regression", "Decision Tree"], horizontal=True)
 
