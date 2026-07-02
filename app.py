@@ -309,8 +309,8 @@ elif page == "Model Comparison":
         use_container_width=True,
     )
     st.caption("Models are sorted by F1-score. Because the dataset is imbalanced (~90:10), accuracy alone can be misleading." 
-               A model may achieve high accuracy by correctly predicting the majority class (students without depression), while failing to identify many students with depression."
-               while the F1-score provides a more balanced evaluation of model performance.")
+               " A model may achieve high accuracy by correctly predicting the majority class (students without depression), while failing to identify many students with depression."
+               " while the F1-score provides a more balanced evaluation of model performance.")
 
     section_rule()
     eyebrow("Dimensionality Reduction")
