@@ -41,11 +41,13 @@ Seaborn
 Streamlit
 
 
-<img width="500" height="220" alt="لقطة شاشة 2026-07-11 152156" src="https://github.com/user-attachments/assets/aa85f82c-ff6e-428d-b0bb-d563cbb09fbb" />
+<img width="550" height="220" alt="لقطة شاشة 2026-07-11 152156" src="https://github.com/user-attachments/assets/aa85f82c-ff6e-428d-b0bb-d563cbb09fbb" />
+
 Example of a low depression risk prediction.
 
 
 
-<img width="500" height="220" alt="لقطة شاشة 2026-07-11 152059" src="https://github.com/user-attachments/assets/f6429d99-bfc5-4272-9412-9a2a6605d183" />
+<img width="550" height="220" alt="لقطة شاشة 2026-07-11 152059" src="https://github.com/user-attachments/assets/f6429d99-bfc5-4272-9412-9a2a6605d183" />
+
 Example of a high depression risk prediction.
 
