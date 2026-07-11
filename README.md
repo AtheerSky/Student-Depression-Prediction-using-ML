@@ -38,3 +38,5 @@ Matplotlib
 Seaborn
 
 Streamlit
+<img width="956" height="413" alt="لقطة شاشة 2026-07-11 152156" src="https://github.com/user-attachments/assets/aa85f82c-ff6e-428d-b0bb-d563cbb09fbb" />
+<img width="957" height="407" alt="لقطة شاشة 2026-07-11 152059" src="https://github.com/user-attachments/assets/f6429d99-bfc5-4272-9412-9a2a6605d183" />
